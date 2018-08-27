@@ -53,5 +53,12 @@ class PersoMG(Perso):
                 self.structure[self.y][self.x] = "M"
             else:
                 print("this is a wall!\n")
+    
+    def get_random_item(self, position_random_item, position_mg, random_choice):
+        item_saved = []
+        random_x, random_y = position_random_item
+        x, y = position_mg
+        if self.structure[x][y] == self.structure[random_x][random_y]:
+            item_saved.append(random_choice)
 
 
