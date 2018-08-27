@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>68f9db68-680b-4f7a-a913-df152d6c8f29</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>Main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,7 +23,6 @@
   <ItemGroup>
     <Compile Include="DisplayGame.py" />
     <Compile Include="game_constants.py" />
-    <Compile Include="labyrinthe_class.py" />
     <Compile Include="Level.py" />
     <Compile Include="Main.py">
       <SubType>Code</SubType>

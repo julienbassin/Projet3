@@ -1,3 +1,5 @@
+import random
+
 class Level:
     """
        this a class level which has a plenty method to generate, display and update the maze 
@@ -35,11 +37,13 @@ class Level:
         """
             Add 4 randomized items into the maze  
         """
-        for i in range(0, 4):
+        i=0
+        while i < len(self.random_choice):
             random_x = random.randint(0, 14)
             random_y = random.randint(0, 14)
             if self.structure[random_x][random_y] == " ":
                 self.structure[random_x][random_y] = self.random_choice[i]
+                i += 1
 
     @staticmethod
     def print_menu():
@@ -49,6 +53,5 @@ class Level:
         print(30 * "-" , "MENU" , 30 * "-")
         print("1. Console Game")
         print("2. GUI Game")
-        print("3. Exit")
         print(67 * "-")
 

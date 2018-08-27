@@ -1,3 +1,6 @@
+from game_constants import width
+from game_constants import height
+
 class Perso():
     """
         the class Perso is mother-class which initialize the coordonates of persons
@@ -16,8 +19,8 @@ class Perso():
         """
             Get the position of any personnages. it takes one parameter letter
         """
-        for line in range(game_constants.width):
-            for column in range(game_constants.height):
+        for line in range(width):
+            for column in range(height):
                 if self.structure[line][column] == letter:
                     self.x, self.y = column, line
                     print("{0} has been created and his coordinates are : {1}".format(self.name, (self.x, self.y)))

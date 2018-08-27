@@ -1,3 +1,7 @@
+from Perso import Perso
+from game_constants import height
+from game_constants import width
+
 class PersoMG(Perso):
     """
         this is a subclass herited by the root-class for Mac_Gyver
@@ -12,19 +16,19 @@ class PersoMG(Perso):
                 self.x -= 1                
                 self.structure[self.y][self.x] = "M"
             else: 
-                print("this is a wall !")
+                print("this is a wall!\n")
 
     def move_position_right(self, direction):
         """
             this method allows Mac_Gyver to move on the right
         """
-        if direction == "r" and self.x < game_constants.width:
+        if direction == "r" and self.x < width:
             if self.structure[self.y][self.x+1] != "W":
                 self.structure[self.y][self.x] = " "
                 self.x += 1
                 self.structure[self.y][self.x] = "M"
             else:
-                print("this is a wall! ")
+                print("this is a wall!\n")
 
     def move_position_high(self, direction):
         """
@@ -36,18 +40,18 @@ class PersoMG(Perso):
                 self.y -=1
                 self.structure[self.y][self.x] = "M"
             else: 
-                print("this is a wall !")
+                print("this is a wall!\n")
 
     def move_position_low(self, direction):
         """
              this method allows Mac_Gyver to move on the low
         """
-        if direction == "lo" and self.y < game_constants.height:
+        if direction == "lo" and self.y < height:
             if self.structure[self.y+1][self.x] != "W":
                 self.structure[self.y][self.x] = " "
                 self.y +=1
                 self.structure[self.y][self.x] = "M"
             else:
-                print("this is a wall !")
+                print("this is a wall!\n")
 
 

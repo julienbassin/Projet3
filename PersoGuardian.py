@@ -1,4 +1,6 @@
-class PersoGuardian(object):
+from Perso import Perso
+
+class PersoGuardian(Perso):
     """description of class"""
     pass
 

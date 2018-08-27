@@ -1,6 +1,6 @@
-import random
-import game_constants
-
+from Level import Level
+from PersoMG import PersoMG
+from PersoGuardian import PersoGuardian
 #faire une class APP
     #def init 
     #def run
@@ -29,7 +29,7 @@ def main():
                 a.display_maze()
                 continue_menu = 0
                 while continue_game:                
-                    choice_move = input("Please enter a direction")
+                    choice_move = input("Please enter a direction: ")
                     if choice_move == "r":
                         b.move_position_right(choice_move)
                     if choice_move == "le":
