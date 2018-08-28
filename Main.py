@@ -2,7 +2,7 @@ from Level import Level
 from PersoMG import PersoMG
 from PersoGuardian import PersoGuardian
 #faire une class APP
-    #def init 
+    #def init
     #def run
 
 def main():

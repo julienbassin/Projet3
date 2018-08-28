@@ -45,6 +45,11 @@ class Level:
                 self.structure[random_x][random_y] = self.random_choice[i]
                 i += 1
 
+    def get_position_random_item(self):
+        if self.structure[x][y] == self.structure[random_x][random_y]:
+            self.structure[random_x][random_y] = " "
+        
+
     @staticmethod
     def print_menu():
         """
