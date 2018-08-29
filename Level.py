@@ -1,5 +1,5 @@
 import random
-
+from game_constants import objects
 class Level:
     """
        this a class level which has a plenty method to generate, display and update the maze 
@@ -7,7 +7,7 @@ class Level:
     def __init__(self, file):
         self.file = file
         self.structure = []
-        self.random_choice = ['E', 'R', 'T', 'Y']
+        self.random_choice = objects
         
     def generate_maze(self):
         """
@@ -44,11 +44,6 @@ class Level:
             if self.structure[random_x][random_y] == " ":
                 self.structure[random_x][random_y] = self.random_choice[i]
                 i += 1
-
-    def get_position_random_item(self):
-        if self.structure[x][y] == self.structure[random_x][random_y]:
-            self.structure[random_x][random_y] = " "
-        
 
     @staticmethod
     def print_menu():

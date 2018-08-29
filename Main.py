@@ -21,7 +21,7 @@ def main():
             elif choice == "1":
                 print("Let's play !")
                 a.generate_maze()
-                b = PersoMG(a.structure, "MG")
+                b = PersoMG(a.structure, "M")
                 c = PersoGuardian(a.structure, "G")
                 b.get_position("M")
                 c.get_position("G")
@@ -31,13 +31,13 @@ def main():
                 while continue_game:                
                     choice_move = input("Please enter a direction: ")
                     if choice_move == "r":
-                        b.move_position_right(choice_move)
+                        b.move_position(choice_move)
                     if choice_move == "le":
-                        b.move_position_left(choice_move)
+                        b.move_position(choice_move)
                     if choice_move == "h":
-                        b.move_position_high(choice_move)
+                        b.move_position(choice_move)
                     if choice_move == "lo":
-                        b.move_position_low(choice_move)
+                        b.move_position(choice_move)
                     a.display_maze()
             elif choice == "2":
                 print("choice 2 has been selected !")
