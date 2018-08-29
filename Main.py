@@ -30,14 +30,7 @@ def main():
                 continue_menu = 0
                 while continue_game:                
                     choice_move = input("Please enter a direction: ")
-                    if choice_move == "r":
-                        b.move_position(choice_move)
-                    if choice_move == "le":
-                        b.move_position(choice_move)
-                    if choice_move == "h":
-                        b.move_position(choice_move)
-                    if choice_move == "lo":
-                        b.move_position(choice_move)
+                    b.move_position(choice_move)
                     a.display_maze()
             elif choice == "2":
                 print("choice 2 has been selected !")

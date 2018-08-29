@@ -27,7 +27,7 @@ class PersoMG(Perso):
     
     def new_position_MG(self, mouvement_x, mouvement_y):
         if self.structure[self.y+mouvement_y][self.x+mouvement_x] != "W":
-            if set(self.structure[self.y+mouvement_y][self.x+mouvement_x]).issubset(set(objects)):
+            if set(self.structure[self.y+mouvement_y][self.x+mouvement_x]).issubset(set(objects)) and len(objets) < 4:
                 self.pocket.append(self.structure[self.y+mouvement_y][self.x+mouvement_x])
             self.structure[self.y][self.x] = " "    
             self.x += mouvement_x
