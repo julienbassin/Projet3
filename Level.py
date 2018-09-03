@@ -1,5 +1,8 @@
 import random
 from game_constants import objects
+from Perso import Perso
+from PersoMG import PersoMG
+
 class Level:
     """
        this a class level which has a plenty method to generate, display and update the maze 
@@ -8,6 +11,7 @@ class Level:
         self.file = file
         self.structure = []
         self.random_choice = objects
+        
         
     def generate_maze(self):
         """
@@ -45,6 +49,15 @@ class Level:
                 self.structure[random_x][random_y] = self.random_choice[i]
                 i += 1
 
+    def check_position(self,position_MG, position_G):
+        MG_x, MG_y = position_MG
+        G_x, G_y = position_G
+        if MG_y == G_y and MG_x == G_x -1 and len(pocket) == 4:
+            print("You're win!")
+        else:
+            print("You're not finished!")
+
+       
     @staticmethod
     def print_menu():
         """

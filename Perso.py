@@ -23,4 +23,4 @@ class Perso():
             for column in range(height):
                 if self.structure[line][column] == letter:
                     self.x, self.y = column, line
-                    print("{0} has been created and his coordinates are : {1}".format(self.name, (self.x, self.y)))
+        return (self.x, self.y)
