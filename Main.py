@@ -1,10 +1,10 @@
-from Level import Level
+from Level import Level, Game
 from PersoMG import PersoMG
 from PersoGuardian import PersoGuardian
 #faire une class APP
     #def init
     #def run
-
+    #design pattern 
 def main():
     """ Main loop """
     a = Level("labyrinthe.txt")
@@ -23,6 +23,8 @@ def main():
                 a.generate_maze()
                 b = PersoMG(a.structure, "M")
                 c = PersoGuardian(a.structure, "G")
+                
+
                 position_MG = b.get_position("M")
                 position_G = c.get_position("G")
                 print("{0} has been created and his coordinates are : {1}".format(b.name, position_MG))
@@ -33,7 +35,7 @@ def main():
                 while continue_game:                
                     choice_move = input("Please enter a direction: ")
                     position_MG = b.move_position(choice_move)
-                    a.check_position(position_MG, position_G)                 
+                    a.check_position(position_MG, position_G, b.pocket)                 
                     a.display_maze()
             elif choice == "2":
                 print("choice 2 has been selected !")

@@ -1,7 +1,8 @@
 import random
-from game_constants import objects
+from game_constants import OBJECTS
 from Perso import Perso
 from PersoMG import PersoMG
+import pygame
 
 class Level:
     """
@@ -10,7 +11,8 @@ class Level:
     def __init__(self, file):
         self.file = file
         self.structure = []
-        self.random_choice = objects
+        self.random_choice = OBJECTS
+#       self.full_pocket = PersoMG()
         
         
     def generate_maze(self):
@@ -49,10 +51,8 @@ class Level:
                 self.structure[random_x][random_y] = self.random_choice[i]
                 i += 1
 
-    def check_position(self,position_MG, position_G):
-        MG_x, MG_y = position_MG
-        G_x, G_y = position_G
-        if MG_y == G_y and MG_x == G_x -1 and len(pocket) == 4:
+    def check_position(self,position_MG, position_G, pocket_full):        
+        if position_MG == (position_G[0]-1, position_G[1]) and len(pocket_full) == 4:
             print("You're win!")
         else:
             print("You're not finished!")

@@ -1,7 +1,8 @@
-width = 15
-height = 15
+WIDTH = 15
+HEIGHT = 15
 
-objects = ['E', 'R', 'T', 'Y']
+OBJECTS = ['E', 'R', 'T', 'Y']
+POCKET_SIZE = 4
 
 """
 Ajouter les liens vers les images
