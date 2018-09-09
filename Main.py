@@ -1,4 +1,4 @@
-from Level import Level, Game
+from Level import Level
 from PersoMG import PersoMG
 from PersoGuardian import PersoGuardian
 #faire une class APP
@@ -14,7 +14,7 @@ def main():
         continue_menu = 1
         while continue_menu:
             a.print_menu()
-            choice = input("Enter your choice [1-2] : ")
+            choice = input("Enter your choice [1-2]: ")
             if choice  == 'q' or choice == 'quit':
                 continue_menu = 0
                 continue_game = 0
