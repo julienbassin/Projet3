@@ -1,4 +1,4 @@
-from game_constants import * 
+from constants import * 
 
 class Perso():
     """

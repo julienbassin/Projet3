@@ -1,8 +1,8 @@
-import random
-from game_constants import OBJECTS
-from Perso import Perso
-from PersoMG import PersoMG
 import pygame
+import random
+from constants import *
+from Perso import *
+
 
 class Level:
     """
@@ -10,7 +10,7 @@ class Level:
     """
     def __init__(self):
         self.structure = []
-        self.random_choice = IMAGE_OBJECTS        
+        self.random_choice = OBJECTS        
         
     def load_maze_from_file(self, file):
         """
