@@ -64,11 +64,11 @@ class Level:
             random_y = random.randint(0, 14)
             if self.structure[random_x][random_y] == " ":
                 self.structure[random_x][random_y] = self.random_choice[i]
-                if self.random_choice[i] == "E":
+                if self.structure[random_x][random_y] == "E":
                     window.blit(ether_object, (random_x, random_y))
-                elif self.random_choice[i] == "T":
+                elif self.structure[random_x][random_y] == "T":
                     window.blit(tube_object, (random_x, random_y))
-                elif self.random_choice[i] == "R":
+                elif self.structure[random_x][random_y] == "R":
                     window.blit(needle_object, (random_x, random_y))
                 i += 1
 
