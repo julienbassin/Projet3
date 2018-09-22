@@ -1,5 +1,5 @@
 from Perso import Perso
-from game_constants import NUMBER_SPRITE, OBJECTS, POCKET_SIZE
+from constants import *
 
 """ 
     Faire un enum  + tableau de translation

@@ -62,14 +62,16 @@ class Level:
         while i < len(self.objects):
             random_x = random.randint(0, 14)
             random_y = random.randint(0, 14)
+            x = random_x * PIXEL_LENGTH
+            y = random_y * PIXEL_LENGTH
             if self.structure[random_x][random_y] == " ":
                 self.structure[random_x][random_y] = self.objects[i]
                 if self.structure[random_x][random_y] == "E":
-                    window.blit(ether_object, (random_x, random_y))
+                    window.blit(ether_object, (x, y))
                 elif self.structure[random_x][random_y] == "T":
-                    window.blit(tube_object, (random_x, random_y))
+                    window.blit(tube_object, (x, y))
                 elif self.structure[random_x][random_y] == "R":
-                    window.blit(needle_object, (random_x, random_y))
+                    window.blit(needle_object, (x, y))
                 i += 1
 
     def check_position(self,position_MG, position_G, pocket_full):        
