@@ -1,5 +1,5 @@
 from Perso import Perso
-from game_constants import HEIGHT, WIDTH, OBJECTS, POCKET_SIZE
+from game_constants import NUMBER_SPRITE, OBJECTS, POCKET_SIZE
 
 """ 
     Faire un enum  + tableau de translation
@@ -33,15 +33,15 @@ class PersoMG(Perso):
 
     def move_position(self, direction):
         """
-                        this method allows Mac_Gyver to move on the left
+            this method allows Mac_Gyver to move on the left
         """
         if direction == "le" and self.x > 0:
             self.new_position_MG(-1,0)
-        elif direction == "r" and self.x < WIDTH:
+        elif direction == "r" and self.x < NUMBER_SPRITE:
             self.new_position_MG(1,0)
         elif direction == "h" and self.y > 0:
             self.new_position_MG(0,-1)
-        elif direction == "lo" and self.y < HEIGHT:
+        elif direction == "lo" and self.y < NUMBER_SPRITE:
              self.new_position_MG(0,1)
         else:
              print("You can't do that move")

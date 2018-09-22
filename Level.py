@@ -8,19 +8,16 @@ class Level:
     """
        this a class level which has a plenty method to generate, display and update the maze 
     """
-    def __init__(self, file):
-        self.file = file
+    def __init__(self):
         self.structure = []
-        self.random_choice = OBJECTS
-#       self.full_pocket = PersoMG()
+        self.random_choice = IMAGE_OBJECTS        
         
-        
-    def generate_maze(self):
+    def load_maze_from_file(self, file):
         """
             Generate a maze in memory from the file
         """
-        with open(self.file) as file:
-            lines = file.read().split("\n")
+        with open(file) as f:
+            lines = f.read().split("\n")
             structure_level = []        
             for line in lines:
                 line_level = []
@@ -30,41 +27,53 @@ class Level:
                 structure_level.append(line_level)
                 self.structure = structure_level
     
-    def display_maze(self):
+    def display_maze(self, window):
         """
-            Iterate the maze's structure and display the result
+            Display the maze's structure
         """
-        for liste in self.structure:
-            for item in liste:
-                print(item, end='')
-            print()
+        wall = pygame.image.load(IMAGE_WALL).convert()
+        start = pygame.image.load(IMAGE_START).convert()
+        finish = pygame.image.load(IMAGE_FINISH).convert_alpha()
 
-    def randomize_item_maze(self):
+        num_line = 0
+        for lines in self.structure:
+            num_case = 0            
+            for sprite in lines:
+                x = num_case * PIXEL_LENGTH
+                y = num_line * PIXEL_LENGTH
+                if sprite == "W":
+                    window.blit(wall, (x,y))
+                elif sprite == "M":
+                    window.blit(start, (x,y))
+                elif sprite == "G":
+                    window.blit(finish, (x,y))
+                num_case +=1
+            num_line +=1
+
+    def randomize_item_maze(self, window):
         """
             Add 4 randomized items into the maze  
         """
+        tube_object = pygame.image.load(IMAGE_TUBE).convert()
+        ether_object = pygame.image.load(IMAGE_ETHER).convert()
+        needle_object = pygame.image.load(IMAGE_NEEDLE).convert()
+
         i=0
         while i < len(self.random_choice):
             random_x = random.randint(0, 14)
             random_y = random.randint(0, 14)
             if self.structure[random_x][random_y] == " ":
                 self.structure[random_x][random_y] = self.random_choice[i]
+                if self.random_choice[i] == "E":
+                    window.blit(ether_object, (random_x, random_y))
+                elif self.random_choice[i] == "T":
+                    window.blit(tube_object, (random_x, random_y))
+                elif self.random_choice[i] == "R":
+                    window.blit(needle_object, (random_x, random_y))
                 i += 1
 
     def check_position(self,position_MG, position_G, pocket_full):        
-        if position_MG == (position_G[0]-1, position_G[1]) and len(pocket_full) == 4:
+        if position_MG == pposition_G and len(pocket_full) == 4:
             print("You're win!")
         else:
             print("You're not finished!")
-
-       
-    @staticmethod
-    def print_menu():
-        """
-            Display the principal menu
-        """
-        print(30 * "-" , "MENU" , 30 * "-")
-        print("1. Console Game")
-        print("2. GUI Game")
-        print(67 * "-")
-

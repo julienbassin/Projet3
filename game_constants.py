@@ -1,13 +1,11 @@
-WIDTH = 15
-HEIGHT = 15
-
-OBJECTS = ['E', 'R', 'T', 'Y']
-POCKET_SIZE = 4
-
-"""
-Ajouter les liens vers les images
-nombre de parties
-sauvegarder le score
-sauvergarder la partie en cours
-
-"""
+NUMBER_SPRITE   = 15
+PIXEL_LENGTH    = 40
+SIDE_PIXEL      = NUMBER_SPRITE * PIXEL_LENGTH
+POCKET_SIZE     = 3
+OBJECTS         = ['E', 'R', 'T']
+IMAGE_WALL      = "resource\wall.png"
+IMAGE_START     = "resource\player.png"
+IMAGE_FINISH    = "resource\guardian.png"
+IMAGE_ETHER     = "resource\ether.png"
+IMAGE_TUBE      = "resource\tube.png"
+IMAGE_NEEDLE    = "resource\needle.png"

@@ -1,5 +1,4 @@
-from game_constants import WIDTH
-from game_constants import HEIGHT
+from game_constants import * 
 
 class Perso():
     """
@@ -19,8 +18,8 @@ class Perso():
         """
             Get the position of any personnages. it takes one parameter letter
         """
-        for line in range(WIDTH):
-            for column in range(HEIGHT):
+        for line in range(NUMBER_SPRITE):
+            for column in range(NUMBER_SPRITE):
                 if self.structure[line][column] == letter:
                     self.x, self.y = column, line
         return (self.x, self.y)
