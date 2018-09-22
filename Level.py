@@ -10,7 +10,7 @@ class Level:
     """
     def __init__(self):
         self.structure = []
-        self.random_choice = OBJECTS        
+        self.objects = OBJECTS        
         
     def load_maze_from_file(self, file):
         """
@@ -59,11 +59,11 @@ class Level:
         needle_object = pygame.image.load(IMAGE_NEEDLE).convert()
 
         i=0
-        while i < len(self.random_choice):
+        while i < len(self.objects):
             random_x = random.randint(0, 14)
             random_y = random.randint(0, 14)
             if self.structure[random_x][random_y] == " ":
-                self.structure[random_x][random_y] = self.random_choice[i]
+                self.structure[random_x][random_y] = self.objects[i]
                 if self.structure[random_x][random_y] == "E":
                     window.blit(ether_object, (random_x, random_y))
                 elif self.structure[random_x][random_y] == "T":
