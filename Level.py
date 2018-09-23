@@ -33,9 +33,10 @@ class Level:
         """
             Display the maze's structure
         """
-        wall = pygame.image.load(IMAGE_WALL).convert()        
-        mac_gyver = pygame.image.load(IMAGE_MACGYVER).convert() 
-        guardian = pygame.image.load(IMAGE_GUARDIAN).convert() 
+        wall_object = pygame.image.load(IMAGE_WALL).convert()        
+        mac_gyver_object = pygame.image.load(IMAGE_MACGYVER).convert() 
+        guardian_object = pygame.image.load(IMAGE_GUARDIAN).convert()
+
         num_line = 0
         for lines in self.structure:
             num_case = 0            
@@ -43,11 +44,11 @@ class Level:
                 x = num_case * PIXEL_LENGTH
                 y = num_line * PIXEL_LENGTH
                 if sprite == "W":
-                    window.blit(wall, (x,y))
+                    window.blit(wall_object, (x,y))
                 if sprite == "M":
-                    window.blit(mac_gyver, (x,y))
+                    window.blit(mac_gyver_object, (x,y))
                 if sprite == "G":
-                    window.blit(guardian, (x,y))
+                    window.blit(guardian_object, (x,y))
                 num_case +=1
             num_line +=1
 

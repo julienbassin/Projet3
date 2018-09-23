@@ -3,7 +3,7 @@ from pygame.locals import *
 
 import random
 from constants import *
-from Level import *
+from Level import Level
 
 class Perso():
     """
@@ -36,14 +36,14 @@ class Perso():
              print("You can't do that move")
         print(self.pocket)
 
-    def new_position_MG(self, mouvement_x, mouvement_y):
-        case_destination = self.structure[self.y+mouvement_y][self.x+mouvement_x]
+    def new_position_MG(self, movement_x, movement_y):
+        case_destination = self.structure[self.y+movement_y][self.x+movement_x]
         if case_destination not in  ["W", "G"]:
             if case_destination in OBJECTS and len(self.pocket) < POCKET_SIZE:
                 self.pocket.append(case_destination)
                 self.structure[self.y][self.x] = " "
             self.structure[self.y][self.x] = " "
-            self.x += mouvement_x
-            self.y += mouvement_y
+            self.x += movement_x
+            self.y += movement_y
             self.structure[self.y][self.x] = "M"
             

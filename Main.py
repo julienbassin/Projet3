@@ -1,10 +1,9 @@
 import pygame
 from pygame.locals import *
 
-from Level import *
-from Perso import * 
-from PersoMG import * 
-from constants import *
+from Level import Level
+from Perso import Perso
+from constants import SIDE_PIXEL
 
 
 
