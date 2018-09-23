@@ -9,7 +9,7 @@ class Perso():
     """description of class"""
     def __init__(self, letter):
         self.x = 0
-        self.y = 0
+        self.y = 0 
         self.letter = letter
                 
     def get_position(self, structure):
