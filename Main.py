@@ -9,26 +9,26 @@ from constants import SIDE_PIXEL
 
 def main():
     """ Main loop """
-    continue_game = 1
+    continue_game = True # -tc- auto-document boolean values by using True/False
     while continue_game:
         pygame.init()
         w = pygame.display.set_mode((SIDE_PIXEL, SIDE_PIXEL))
 
-        continue_menu = 1
+        continue_menu = True # -tc- auto-document boolean values by using True/False
         while continue_menu:
             pygame.time.Clock().tick(30)
         
             for event in pygame.event.get():
                 if event.type == QUIT:
-                    continue_menu = 0
-                    continue_game = 0
+                    continue_menu = False # -tc- auto-document boolean values by using True/False
+                    continue_game = False # -tc- auto-document boolean values by using True/False
                     choice = 0
                 elif event.type == KEYDOWN:
                     if event.key == K_1:
-                        continue_menu = 0
+                        continue_menu = False # -tc- auto-document boolean values by using True/False
                         choice = "l1"
                     elif event.key == K_2:
-                        continue_menu = 0 
+                        continue_menu = False # -tc- auto-document boolean values by using True/False
                         choice = "l2"
         if  choice != 0:
             a = Level()
@@ -46,8 +46,8 @@ def main():
             while continue_party:
                 for event in pygame.event.get():
                     if event.type == QUIT:
-                        continue_party = 0
-                        continue_game = 0
+                        continue_party = False # -tc- auto-document boolean values by using True/False
+                        continue_game = False # -tc- auto-document boolean values by using True/False
                     if event.type == KEYDOWN:
                         if event.key == K_DOWN:
                             mac_gyver.move_position(a.structure, "low")

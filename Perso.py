@@ -1,9 +1,9 @@
-import pygame
-from pygame.locals import *
+# -tc- not used import pygame
+# -tc- not used from pygame.locals import *
 
-import random
-from constants import *
-from Level import *
+# -tc- not used import random
+from constants import OBJECTS, POCKET_SIZE
+# -tc- not used from Level import Level
 
 class Perso():
     """description of class"""
@@ -52,7 +52,7 @@ class PersoMG(Perso):
         if case_destination not in  ["W", "G"]:
             if case_destination in OBJECTS and len(self.pocket) < POCKET_SIZE:
                 self.pocket.append(case_destination)
-                structure[self.y][self.x] = " "
+                # -tc- not useful structure[self.y][self.x] = " "
             structure[self.y][self.x] = " "
             self.x += movement_x
             self.y += movement_y

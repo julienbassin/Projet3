@@ -1,9 +1,9 @@
 import pygame
-from pygame.locals import *
+# -tc- not used from pygame.locals import *
 
 import random
-from constants import *
-from Perso import *
+import constants as const
+# -tc- not used from Perso import *
 
 
 class Level:
@@ -12,7 +12,7 @@ class Level:
     """
     def __init__(self):
         self.structure = []
-        self.objects = OBJECTS        
+        self.objects = const.OBJECTS
         
     def load_maze_from_file(self, file):
         """
@@ -33,21 +33,21 @@ class Level:
         """
             Display the maze's structure
         """
-        wall_object      = pygame.image.load(IMAGE_WALL).convert()        
-        mac_gyver_object = pygame.image.load(IMAGE_MACGYVER).convert() 
-        guardian_object  = pygame.image.load(IMAGE_GUARDIAN).convert()
-        floor_object     = pygame.image.load(IMAGE_FLOOR).convert()
+        wall_object      = pygame.image.load(const.IMAGE_WALL).convert()
+        mac_gyver_object = pygame.image.load(const.IMAGE_MACGYVER).convert()
+        guardian_object  = pygame.image.load(const.IMAGE_GUARDIAN).convert()
+        floor_object     = pygame.image.load(const.IMAGE_FLOOR).convert()
 
-        tube_object      = pygame.image.load(IMAGE_TUBE).convert()
-        ether_object     = pygame.image.load(IMAGE_ETHER).convert()
-        needle_object    = pygame.image.load(IMAGE_NEEDLE).convert()
+        tube_object      = pygame.image.load(const.IMAGE_TUBE).convert()
+        ether_object     = pygame.image.load(const.IMAGE_ETHER).convert()
+        needle_object    = pygame.image.load(const.IMAGE_NEEDLE).convert()
 
         num_line = 0
         for lines in self.structure:
             num_case = 0            
             for sprite in lines:
-                x = num_case * PIXEL_LENGTH
-                y = num_line * PIXEL_LENGTH
+                x = num_case * const.PIXEL_LENGTH
+                y = num_line * const.PIXEL_LENGTH
                 if sprite == "W":
                     window.blit(wall_object, (x,y))
                 elif sprite == "M":
@@ -74,8 +74,8 @@ class Level:
         while i < len(self.objects):
             random_x = random.randint(0, 14)
             random_y = random.randint(0, 14)
-            x = random_x * PIXEL_LENGTH
-            y = random_y * PIXEL_LENGTH
+            x = random_x * const.PIXEL_LENGTH
+            y = random_y * const.PIXEL_LENGTH
             if self.structure[random_x][random_y] not in ["W","M","G","E","T","R"]:
                 self.structure[random_x][random_y] = self.objects[i]                
                 i += 1
