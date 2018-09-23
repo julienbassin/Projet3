@@ -3,7 +3,7 @@ from pygame.locals import *
 
 import random
 from constants import *
-from Level import Level
+from Level import *
 
 class Perso():
     """

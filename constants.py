@@ -6,6 +6,7 @@ OBJECTS         = ['E', 'R', 'T']
 IMAGE_WALL      = "resource\\wall.png"
 IMAGE_MACGYVER  = "resource\\player.png"
 IMAGE_GUARDIAN  = "resource\\guardian.png"
+IMAGE_FLOOR     = "resource\\floor.png"
 IMAGE_ETHER     = "resource\\ether.png"
 IMAGE_TUBE      = "resource\\tube.png"
 IMAGE_NEEDLE    = "resource\\needle.png"
