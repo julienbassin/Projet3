@@ -32,10 +32,11 @@ def main():
                         choice = "l2"
         if  choice != 0:
             a = Level()
-            maze_loaded = a.load_maze_from_file("resource\labyrinthe.txt")
-            a.display_maze(w)
+            maze_loaded = a.load_maze_from_file("resource\labyrinthe.txt")            
             a.randomize_item_maze(w)
             b = Perso(a.structure)
+
+            a.display_maze(w)
             pygame.display.flip()
             
             continue_party = 1

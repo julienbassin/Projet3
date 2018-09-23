@@ -69,7 +69,7 @@ class Level:
             random_y = random.randint(0, 14)
             x = random_x * PIXEL_LENGTH
             y = random_y * PIXEL_LENGTH
-            if self.structure[random_x][random_y] != "W":
+            if self.structure[random_x][random_y] not in ["W","M","G","E","T","R"]:
                 self.structure[random_x][random_y] = self.objects[i]
                 if self.structure[random_x][random_y] == "E":
                     window.blit(ether_object, (x, y))
