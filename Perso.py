@@ -41,7 +41,8 @@ class Perso():
         if case_destination not in  ["W", "G"]:
             if case_destination in OBJECTS and len(self.pocket) < POCKET_SIZE:
                 self.pocket.append(case_destination)
-                self.structure[self.y][self.x] = " "    
+                self.structure[self.y][self.x] = " "
+            self.structure[self.y][self.x] = " "
             self.x += mouvement_x
             self.y += mouvement_y
             self.structure[self.y][self.x] = "M"

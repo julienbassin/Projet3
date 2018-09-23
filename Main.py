@@ -56,7 +56,6 @@ def main():
                             b.move_position("right")
                 
                 a.display_maze(w)
-                pygame.display.flip()
-                
+                pygame.display.flip()    
 
 main()
