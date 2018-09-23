@@ -1,4 +1,6 @@
 import pygame
+from pygame.locals import *
+
 import random
 from constants import *
 from Perso import *
@@ -31,10 +33,9 @@ class Level:
         """
             Display the maze's structure
         """
-        wall = pygame.image.load(IMAGE_WALL).convert()
-        start = pygame.image.load(IMAGE_START).convert()
-        finish = pygame.image.load(IMAGE_FINISH).convert_alpha()
-
+        wall = pygame.image.load(IMAGE_WALL).convert()        
+        mac_gyver = pygame.image.load(IMAGE_MACGYVER).convert() 
+        guardian = pygame.image.load(IMAGE_GUARDIAN).convert() 
         num_line = 0
         for lines in self.structure:
             num_case = 0            
@@ -43,10 +44,10 @@ class Level:
                 y = num_line * PIXEL_LENGTH
                 if sprite == "W":
                     window.blit(wall, (x,y))
-                elif sprite == "M":
-                    window.blit(start, (x,y))
-                elif sprite == "G":
-                    window.blit(finish, (x,y))
+                if sprite == "M":
+                    window.blit(mac_gyver, (x,y))
+                if sprite == "G":
+                    window.blit(guardian, (x,y))
                 num_case +=1
             num_line +=1
 
@@ -64,13 +65,13 @@ class Level:
             random_y = random.randint(0, 14)
             x = random_x * PIXEL_LENGTH
             y = random_y * PIXEL_LENGTH
-            if self.structure[random_x][random_y] == " ":
+            if self.structure[random_x][random_y] != "W":
                 self.structure[random_x][random_y] = self.objects[i]
                 if self.structure[random_x][random_y] == "E":
                     window.blit(ether_object, (x, y))
-                elif self.structure[random_x][random_y] == "T":
+                if self.structure[random_x][random_y] == "T":
                     window.blit(tube_object, (x, y))
-                elif self.structure[random_x][random_y] == "R":
+                if self.structure[random_x][random_y] == "R":
                     window.blit(needle_object, (x, y))
                 i += 1
 

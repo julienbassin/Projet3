@@ -25,7 +25,6 @@
     <Compile Include="Level.py" />
     <Compile Include="Main.py" />
     <Compile Include="Perso.py" />
-    <Compile Include="PersoGuardian.py" />
     <Compile Include="PersoMG.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
