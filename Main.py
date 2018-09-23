@@ -32,7 +32,7 @@ def main():
                         choice = "l2"
         if  choice != 0:
             a = Level()
-            a.load_maze_from_file("resource\labyrinthe.txt")            
+            a.load_maze_from_file("resource/labyrinthe.txt") # -tc- use / instead of \ for file paths
             a.randomize_item_maze(w)
             mac_gyver = PersoMG("M")
             guardian = Perso("G")
