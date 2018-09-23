@@ -76,7 +76,7 @@ class Level:
                 i += 1
 
     def check_position(self,position_MG, position_G, pocket_full):        
-        if position_MG == pposition_G and len(pocket_full) == 3:
+        if position_MG == position_G and len(pocket_full) == 3:
             print("You're win!")
         else:
             print("You're not finished!")

@@ -36,7 +36,7 @@ def main():
             maze_loaded = a.load_maze_from_file("resource\labyrinthe.txt")
             a.display_maze(w)
             a.randomize_item_maze(w)
-            b = Perso(maze_loaded, "M")
+            b = Perso(a.structure)
             pygame.display.flip()
             
             continue_party = 1
@@ -47,13 +47,16 @@ def main():
                         continue_game = 0
                     if event.type == KEYDOWN:
                         if event.key == K_DOWN:
-                            position_perso = b.move_position("low")
+                            b.move_position("low")
                         if event.key == K_UP:
-                            position_perso = b.move_position("high")
+                            b.move_position("high")
                         if event.key == K_LEFT:
-                            position_perso = b.move_position("left")
+                            b.move_position("left")
                         if event.key == K_RIGHT:
-                            position_perso = b.move_position("right")
+                            b.move_position("right")
+                
+                a.display_maze(w)
+                pygame.display.flip()
                 
 
 main()
