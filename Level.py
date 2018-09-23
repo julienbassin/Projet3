@@ -38,6 +38,10 @@ class Level:
         guardian_object  = pygame.image.load(IMAGE_GUARDIAN).convert()
         floor_object     = pygame.image.load(IMAGE_FLOOR).convert()
 
+        tube_object      = pygame.image.load(IMAGE_TUBE).convert()
+        ether_object     = pygame.image.load(IMAGE_ETHER).convert()
+        needle_object    = pygame.image.load(IMAGE_NEEDLE).convert()
+
         num_line = 0
         for lines in self.structure:
             num_case = 0            
@@ -46,12 +50,18 @@ class Level:
                 y = num_line * PIXEL_LENGTH
                 if sprite == "W":
                     window.blit(wall_object, (x,y))
-                if sprite == "M":
+                elif sprite == "M":
                     window.blit(mac_gyver_object, (x,y))
-                if sprite == "G":
+                elif sprite == "G":
                     window.blit(guardian_object, (x,y))
-                if sprite == " ":
+                elif sprite == " ":
                     window.blit(floor_object, (x,y))
+                elif sprite == "E":
+                    window.blit(ether_object, (x, y))
+                elif sprite == "T":
+                    window.blit(tube_object, (x, y))
+                elif sprite == "R":
+                    window.blit(needle_object, (x, y))
                 num_case +=1
             num_line +=1
 
@@ -59,10 +69,7 @@ class Level:
         """
             Add 4 randomized items into the maze  
         """
-        tube_object = pygame.image.load(IMAGE_TUBE).convert()
-        ether_object = pygame.image.load(IMAGE_ETHER).convert()
-        needle_object = pygame.image.load(IMAGE_NEEDLE).convert()
-
+        
         i=0
         while i < len(self.objects):
             random_x = random.randint(0, 14)
@@ -70,17 +77,13 @@ class Level:
             x = random_x * PIXEL_LENGTH
             y = random_y * PIXEL_LENGTH
             if self.structure[random_x][random_y] not in ["W","M","G","E","T","R"]:
-                self.structure[random_x][random_y] = self.objects[i]
-                if self.structure[random_x][random_y] == "E":
-                    window.blit(ether_object, (x, y))
-                if self.structure[random_x][random_y] == "T":
-                    window.blit(tube_object, (x, y))
-                if self.structure[random_x][random_y] == "R":
-                    window.blit(needle_object, (x, y))
+                self.structure[random_x][random_y] = self.objects[i]                
                 i += 1
 
     def check_position(self,position_MG, position_G, pocket_full):        
-        if position_MG == position_G and len(pocket_full) == 3:
+        if position_MG.x == position_G.x -1 and position_MG.y == position_G.y and len(pocket_full) == 3:
             print("You're win!")
+            return True
         else:
             print("You're not finished!")
+            return False

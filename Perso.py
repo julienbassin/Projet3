@@ -6,44 +6,56 @@ from constants import *
 from Level import *
 
 class Perso():
+    """description of class"""
+    def __init__(self, letter):
+        self.x = 0
+        self.y = 0
+        self.letter = letter
+                
+    def get_position(self, structure):
+        for i, lines in enumerate(structure):
+            for j, sprite in enumerate(lines):
+                if sprite == self.letter:
+                    self.x = j
+                    self.y = i 
+                    return (self.x, self.y)
+        
+
+class PersoMG(Perso):
     """
         the class Perso is mother-class which initialize the coordonates of persons
         it gets the position of any personnages
     """
-    def __init__(self, structure):
+    def __init__(self, letter):
         """
             Initialization of structure, Perso's name and coordinates
-        """
-        self.x = 0
-        self.y = 0
-        self.structure = structure
+        """ 
+        Perso.__init__(self, letter)
         self.pocket = []
-        self.direction = 0 
             
-    def move_position(self, direction):
+    def move_position(self, structure, direction):
         """
             this method allows Mac_Gyver to move on the left
         """
-        if direction == "left" and self.x > 0:
-            self.new_position_MG(-1,0)
-        elif direction == "right" and self.x < NUMBER_SPRITE:
-            self.new_position_MG(1,0)
-        elif direction == "high" and self.y > 0:
-            self.new_position_MG(0,-1)
-        elif direction == "low" and self.y < NUMBER_SPRITE:
-             self.new_position_MG(0,1)
-        else:
-             print("You can't do that move")
+        if direction == "left":
+            self.new_position_MG(structure,-1,0)
+        elif direction == "right":
+            self.new_position_MG(structure,1,0)
+        elif direction == "high":
+            self.new_position_MG(structure,0,-1)
+        elif direction == "low":
+             self.new_position_MG(structure,0,1)        
         print(self.pocket)
 
-    def new_position_MG(self, movement_x, movement_y):
-        case_destination = self.structure[self.y+movement_y][self.x+movement_x]
+    def new_position_MG(self, structure, movement_x, movement_y):
+        case_destination = structure[self.y+movement_y][self.x+movement_x]
         if case_destination not in  ["W", "G"]:
             if case_destination in OBJECTS and len(self.pocket) < POCKET_SIZE:
                 self.pocket.append(case_destination)
-                self.structure[self.y][self.x] = " "
-            self.structure[self.y][self.x] = " "
+                structure[self.y][self.x] = " "
+            structure[self.y][self.x] = " "
             self.x += movement_x
             self.y += movement_y
-            self.structure[self.y][self.x] = "M"
+            structure[self.y][self.x] = "M"
+ 
             

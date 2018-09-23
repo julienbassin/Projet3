@@ -2,7 +2,7 @@ import pygame
 from pygame.locals import *
 
 from Level import Level
-from Perso import Perso
+from Perso import Perso, PersoMG
 from constants import SIDE_PIXEL
 
 
@@ -32,9 +32,12 @@ def main():
                         choice = "l2"
         if  choice != 0:
             a = Level()
-            maze_loaded = a.load_maze_from_file("resource\labyrinthe.txt")            
+            a.load_maze_from_file("resource\labyrinthe.txt")            
             a.randomize_item_maze(w)
-            b = Perso(a.structure)
+            mac_gyver = PersoMG("M")
+            guardian = Perso("G")
+            mac_gyver.get_position(a.structure)
+            guardian.get_position(a.structure)
 
             a.display_maze(w)
             pygame.display.flip()
@@ -47,14 +50,15 @@ def main():
                         continue_game = 0
                     if event.type == KEYDOWN:
                         if event.key == K_DOWN:
-                            b.move_position("low")
+                            mac_gyver.move_position(a.structure, "low")
                         if event.key == K_UP:
-                            b.move_position("high")
+                            mac_gyver.move_position(a.structure, "high")
                         if event.key == K_LEFT:
-                            b.move_position("left")
+                            mac_gyver.move_position(a.structure, "left")
                         if event.key == K_RIGHT:
-                            b.move_position("right")
-                
+                            mac_gyver.move_position(a.structure, "right")
+                if a.check_position(mac_gyver, guardian, mac_gyver.pocket):
+                    break
                 a.display_maze(w)
                 pygame.display.flip()    
 
